@@ -41,27 +41,22 @@ register_tortoise(
 )
 
 
-# Обработчик вебхука для FastAPI
-@app.post(WEBHOOK_PATH)
+@app.post("/tma" + WEBHOOK_PATH)
 async def webhook(request: Request):
     try:
-        # Получаем данные из запроса
         update = Update.model_validate(
             await request.json(), context={"bot": bot}
         )
-        # Обрабатываем обновление через диспетчер
         await dp.feed_update(bot, update)
         return {"status": "ok"}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 
-# Дополнительные маршруты для главного приложения
 @app.get("/")
 async def root():
     return {"message": "Hello, Hello! World!"}
 
-# Запуск приложения
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
