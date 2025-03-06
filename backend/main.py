@@ -53,9 +53,10 @@ async def webhook(request: Request):
         raise HTTPException(status_code=400, detail=str(e))
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello, Hello! World!"}
+@app.get("/tma")
+async def tma_root():
+    return {"message": "Welcome to TMA!"}
+
 
 if __name__ == "__main__":
     import uvicorn
