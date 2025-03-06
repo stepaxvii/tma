@@ -1,7 +1,7 @@
 from tortoise.models import Model
 from tortoise.fields import BigIntField, CharField, IntField
 
-from backend.utils.constants import MAX_LEN_CHARFIELD
+from utils.constants import MAX_LEN_CHARFIELD
 
 
 class User(Model):

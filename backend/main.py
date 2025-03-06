@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, Request, HTTPException
 from tortoise.contrib.fastapi import register_tortoise
 
-from backend.bot.start_app import router
-from backend.config import TORTOISE_ORM
+from bot.start_app import router
+from config import TORTOISE_ORM
 
 
 load_dotenv()
